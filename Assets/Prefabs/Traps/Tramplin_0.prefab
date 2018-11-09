@@ -24,7 +24,9 @@ GameObject:
   - component: {fileID: 61375628287163574}
   - component: {fileID: 61117715297508884}
   - component: {fileID: 50646367254709600}
-  m_Layer: 0
+  - component: {fileID: 95443896245296730}
+  - component: {fileID: 114339629185515320}
+  m_Layer: 8
   m_Name: Tramplin_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631932240800248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0985036, y: -0.04033047, z: 0}
+  m_LocalPosition: {x: -2.1730986, y: -3.191445, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -139,6 +141,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5609412, y: 0.027293146}
   m_EdgeRadius: 0
+--- !u!95 &95443896245296730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631932240800248}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c28c2e35315caa54b8e2655bdf998b77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114339629185515320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631932240800248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4800c66276d5946b5de8293e4f4148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!212 &212353826215979756
 SpriteRenderer:
   m_ObjectHideFlags: 1
