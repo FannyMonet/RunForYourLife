@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cbfac877054f5c740a79779cf7a2f4c7
+timeCreated: 1535993456
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: HoW tO dO SoMeThInG
+  fontNames:
+  - HoW tO dO SoMeThInG
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
