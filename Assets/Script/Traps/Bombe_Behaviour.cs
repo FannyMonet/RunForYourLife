@@ -15,7 +15,7 @@ public class Bombe_Behaviour : MonoBehaviour {
 	void Update () {
 		Destroy(this.gameObject,1.6f);
 
-		if(circleCollider.radius<1.3)
+		if(circleCollider.radius<1.5)
 			circleCollider.radius+=0.02f;
 	}
 
