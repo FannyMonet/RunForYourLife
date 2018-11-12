@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69a15996d1222094aa511b25dc967960
+guid: 72e88a059cabb6140b7046847502e0ac
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,13 +11,12 @@ TrueTypeFontImporter:
   fontName: HoW tO dO SoMeThInG
   fontNames:
   - HoW tO dO SoMeThInG
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 72e88a059cabb6140b7046847502e0ac, type: 3}
-  - {fileID: 12800000, guid: cbfac877054f5c740a79779cf7a2f4c7, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

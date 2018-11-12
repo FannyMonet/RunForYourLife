@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 95773496134391694}
   - component: {fileID: 96161858560113276}
   m_Layer: 0
-  m_Name: Arrow_0
+  m_Name: 3
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
