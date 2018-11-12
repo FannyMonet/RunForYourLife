@@ -30,7 +30,7 @@ public class StartMenu : MonoBehaviour {
 		if (!col.CompareTag ("background")) {
 			anim.SetBool ("playerTouch", true);
 			if(Input.GetButton("Fire1"))
-               SceneManager.LoadScene(1);
+               SceneManager.LoadScene(SceneToLoad);
            
 		}
         
