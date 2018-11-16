@@ -9,6 +9,27 @@ TagManager:
   - NoTrapsHere
   - CharacterTrap
   - WallJumpAllowed
+  - background
+  - Perso
+  - ImageP2
+  - ZoneP4
+  - ImageP3
+  - Player4
+  - ImageP4
+  - Cursor2
+  - ZoneP2
+  - Cursor3
+  - Player1
+  - ZoneP1
+  - Player3
+  - Cursor4
+  - Player2
+  - ImageP1
+  - ZoneP3
+  - Cursor1
+  - Case
+  - Alea
+  - Start
   layers:
   - Default
   - TransparentFX
@@ -45,4 +66,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3263372481
+    locked: 0
+  - name: Image
+    uniqueID: 3398087453
+    locked: 0
+  - name: Cursor
+    uniqueID: 3831306237
     locked: 0

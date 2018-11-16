@@ -28,32 +28,38 @@ public class ScorePanelUI : MonoBehaviour {
 
 	private int[] counter;
 	// Use this for initialization
-	void Start () {
-		textJ1 = GameObject.Find("scoreJ1").GetComponent<Text>();
-		textJ2 = GameObject.Find("scoreJ2").GetComponent<Text>();
-		textJ3 = GameObject.Find("scoreJ3").GetComponent<Text>();
-		textJ4 = GameObject.Find("scoreJ4").GetComponent<Text>();
+	void Start ()
+	{
+		textJ1 = GameObject.Find ("scoreJ1").GetComponent<Text> ();
+		textJ2 = GameObject.Find ("scoreJ2").GetComponent<Text> ();
+		textJ3 = GameObject.Find ("scoreJ3").GetComponent<Text> ();
+		textJ4 = GameObject.Find ("scoreJ4").GetComponent<Text> ();
 
-		bar1 = GameObject.Find("barJ1");
-		bar2 = GameObject.Find("barJ2");
-		bar3 = GameObject.Find("barJ3");
-		bar4 = GameObject.Find("barJ4");
+		bar1 = GameObject.Find ("barJ1");
+		bar2 = GameObject.Find ("barJ2");
+		bar3 = GameObject.Find ("barJ3");
+		bar4 = GameObject.Find ("barJ4");
 
-		supervisor = GameObject.Find("Supervisor").GetComponent<Supervisor>();
+		supervisor = GameObject.Find ("Supervisor").GetComponent<Supervisor> ();
 		counter = new int[supervisor.playerNbr];
 
-		J1 = GameObject.Find("ImageJ1").GetComponent<Image>();
-		J2 = GameObject.Find("ImageJ2").GetComponent<Image>();
-		J3 = GameObject.Find("ImageJ3").GetComponent<Image>();
-		J4 = GameObject.Find("ImageJ4").GetComponent<Image>();
+		J1 = GameObject.Find ("ImageJ1").GetComponent<Image> ();
+		J2 = GameObject.Find ("ImageJ2").GetComponent<Image> ();
+		J3 = GameObject.Find ("ImageJ3").GetComponent<Image> ();
+		J4 = GameObject.Find ("ImageJ4").GetComponent<Image> ();
 
-		J1.sprite = supervisor.listOfAvatar[0].GetComponent<SpriteRenderer>().sprite;
-		J2.sprite = supervisor.listOfAvatar[1].GetComponent<SpriteRenderer>().sprite;
-
-		J3.sprite = supervisor.listOfAvatar[2].GetComponent<SpriteRenderer>().sprite;
-
-		J4.sprite = supervisor.listOfAvatar[3].GetComponent<SpriteRenderer>().sprite;
-
+		J1.sprite = supervisor.listOfAvatar [0].GetComponent<SpriteRenderer> ().sprite;
+		J2.sprite = supervisor.listOfAvatar [1].GetComponent<SpriteRenderer> ().sprite;
+		if (supervisor.playerNbr >= 3) {
+			J3.sprite = supervisor.listOfAvatar [2].GetComponent<SpriteRenderer> ().sprite;
+		} else {
+			J3.gameObject.SetActive (false);
+		}
+		if (supervisor.playerNbr == 4) {
+			J4.sprite = supervisor.listOfAvatar [3].GetComponent<SpriteRenderer> ().sprite;
+		} else {
+			J4.gameObject.SetActive(false);
+		} 
 
 
 	}

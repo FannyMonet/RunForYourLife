@@ -83,10 +83,10 @@ public class FlagBehaviourScript : MonoBehaviour {
 							someoneDead = true;
 						} else {
 							if (premier) {
-								scoresProvisoires [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1] = 2 + scoresKills[int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1];
+								scoresProvisoires [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1] = 2 + scoresKills [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1];
 								premier = false;
 							} else {
-								scoresProvisoires [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1] = 1 + scoresKills[int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1];
+								scoresProvisoires [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1] = 1 + scoresKills [int.Parse (currentPlayer.GetComponent<Movement> ().playerNumber) - 1];
 							}
 
 						}
@@ -132,25 +132,53 @@ public class FlagBehaviourScript : MonoBehaviour {
 
 			if (waitingTime4 < 0 && endCinematic) {
 				int[] order = supervisor.sortScore ();
-				int rand=0;
+				int rand = 0;
+				int bomb = 4;
+				//Get all traps in scene
+				GameObject[] listOfTraps = GameObject.FindGameObjectsWithTag ("Trap");
+				if (listOfTraps.Length > 5) {
+					bomb = Random.Range (0, 4);
+				}
 				for (int i = 0; i < nbPlayers; i++) {
 					playerTrapList.GetComponentInChildren<SpriteRenderer> ().sprite = supervisor.listOfAvatar [i].GetComponent<SpriteRenderer> ().sprite;
 					playerTrapList.GetComponentInChildren<Animator> ().runtimeAnimatorController = supervisor.listOfAvatar [i].GetComponent<Animator> ().runtimeAnimatorController;
 					playerTrapList.GetComponent<PhasePiege> ().playerNumber = (i + 1).ToString ();
 
 					if (order [i] == 1) {
-						rand = Random.Range (0, n2+1 );
+						if (nbPlayers == 2) {
+							rand = Random.Range (0, n4 + 1);
+						} else if (nbPlayers == 3) {
+							rand = Random.Range (0, n3 + 1);
+						} else {
+							rand = Random.Range (0, n2 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//0
 					} else if (order [i] == 2) {
-						rand =Random.Range (n1+1, n3+1 );
+						if (nbPlayers == 2) {
+							rand = Random.Range (n1+1, n5 + 1);
+						} else if (nbPlayers == 3) {
+							rand = Random.Range (n1+1, n4 + 1);
+						} else {
+							rand = Random.Range (n1+1, n3 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//2 et 3
 					} else if (order [i] == 3) {
-						rand =Random.Range (n2+1, n4+1 );
+					    if (nbPlayers == 3) {
+							rand = Random.Range (n2+1, n5 + 1);
+						} else {
+							rand = Random.Range (n2+1, n4 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];
 					} else if (order [i] == 4) {
-						rand = Random.Range (n3+1, n5+1);
+						rand = Random.Range (n3 + 1, n5 + 1);
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];
 					}
+
+					if (i == bomb) {
+						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [0];
+					}
+
+
 					Debug.Log("Le "+i+" e element a eu pour random : "+rand); 
 					Instantiate (playerTrapList, supervisor.spawner [i].transform.position, Quaternion.identity);
 				}
