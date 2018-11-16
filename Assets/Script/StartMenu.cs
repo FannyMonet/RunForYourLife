@@ -9,6 +9,7 @@ public class StartMenu : MonoBehaviour {
     public Animator anim;
     public GameObject buttonA;
     public int SceneToLoad;
+
     // Use this for initialization
     void Start () {
         anim = gameObject.GetComponent<Animator>();
@@ -29,7 +30,7 @@ public class StartMenu : MonoBehaviour {
 	{
 		if (!col.CompareTag ("background")) {
 			anim.SetBool ("playerTouch", true);
-			if(Input.GetButton("Fire1"))
+			if(Input.GetButtonDown("Fire1"))
                SceneManager.LoadScene(SceneToLoad);
            
 		}
