@@ -145,18 +145,35 @@ public class FlagBehaviourScript : MonoBehaviour {
 					playerTrapList.GetComponent<PhasePiege> ().playerNumber = (i + 1).ToString ();
 
 					if (order [i] == 1) {
-						rand = Random.Range (0, n2 + 1);
+						if (nbPlayers == 2) {
+							rand = Random.Range (0, n4 + 1);
+						} else if (nbPlayers == 3) {
+							rand = Random.Range (0, n3 + 1);
+						} else {
+							rand = Random.Range (0, n2 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//0
 					} else if (order [i] == 2) {
-						rand = Random.Range (n1 + 1, n3 + 1);
+						if (nbPlayers == 2) {
+							rand = Random.Range (n1+1, n5 + 1);
+						} else if (nbPlayers == 3) {
+							rand = Random.Range (n1+1, n4 + 1);
+						} else {
+							rand = Random.Range (n1+1, n3 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//2 et 3
 					} else if (order [i] == 3) {
-						rand = Random.Range (n2 + 1, n4 + 1);
+					    if (nbPlayers == 3) {
+							rand = Random.Range (n2+1, n5 + 1);
+						} else {
+							rand = Random.Range (n2+1, n4 + 1);
+						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];
 					} else if (order [i] == 4) {
 						rand = Random.Range (n3 + 1, n5 + 1);
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];
 					}
+
 					if (i == bomb) {
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [0];
 					}

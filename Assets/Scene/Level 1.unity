@@ -978,7 +978,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 606598561c30e1f4fb0d988405a327ef, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4765,6 +4765,7 @@ MonoBehaviour:
   - {fileID: 1170488736894860, guid: 7dd08e6df31aeb54a86f113011290e41, type: 2}
   playerNbr: 4
   trapsSet: 0
+  presupervisor: {fileID: 0}
   BoardIsDown: 0
   order: 
   scores: 
@@ -12281,7 +12282,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d2e80ba122652d745a0a4472ec2c1bbd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12742,6 +12743,26 @@ Prefab:
         type: 2}
       propertyPath: randomSeed
       value: -843023487
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
         type: 2}
@@ -17334,7 +17355,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 58ae2de6fb8478e43a40e155609c204c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25227,7 +25248,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b92033332e677ca48b18343044efc000, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26199,6 +26220,26 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198308638744985232, guid: 4e38c4202384fb745bf3aff3fd8b9275,
         type: 2}

@@ -14,6 +14,7 @@ public class Supervisor : MonoBehaviour {
 	public GameObject[] TrapList;
     public int playerNbr;
     public int trapsSet;
+    public supervisorScript presupervisor;
 
 	public bool BoardIsDown;
 
@@ -33,22 +34,21 @@ public class Supervisor : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
 	{
-	    playerNbr = listOfAvatar.Length;
+		presupervisor = GameObject.Find ("Pre-supervisor").GetComponent<supervisorScript> ();
+		playerNbr = presupervisor.number;
 		listOfAvatar = new GameObject[playerNbr];
 		scores = new int[playerNbr];
 
-	    listOfAvatarInstantiated = listOfAvatar;
+		listOfAvatarInstantiated = listOfAvatar;
 		if (!created) {
-		DontDestroyOnLoad(this.gameObject);
-		created = true;
-		waitingTime = 120;
-		spawner = new GameObject[4];
-			listOfAvatar[0] = J1;
-		listOfAvatar[1] = J2;
-		listOfAvatar[2] = J3;
-		listOfAvatar[3] = J4;
+			DontDestroyOnLoad (this.gameObject);
+			created = true;
+			waitingTime = 120;
+			spawner = new GameObject[4];
+			for (int i = 0; i < presupervisor.number; i++) {
+				listOfAvatar [i] = presupervisor.players [i];
+			}
 		}
-		
 	}
 
 	// Update is called once per frame
