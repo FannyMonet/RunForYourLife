@@ -32,9 +32,11 @@ public class Movement : MonoBehaviour {
     public CameraAtStart camera;
 
     public FlagBehaviourScript flag;
+    public GameObject SoundManager;
 
 
 	void Start () {
+	    Destroy(GameObject.Find("SoundManager"));
 		aRgbd = gameObject.GetComponent<Rigidbody2D>();
 		source = gameObject.GetComponent<AudioSource>();
 		anim = gameObject.GetComponent<Animator>();

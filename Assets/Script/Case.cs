@@ -7,6 +7,11 @@ public class Case : MonoBehaviour {
     public Sprite sprite;
     public GameObject prefab;
     public bool selected;
+    public AudioClip clip;
 
-	
+	void OnTriggerEnter2D (Collider2D col)
+	{
+	if(!selected)
+	    col.GetComponent<AudioSource>().PlayOneShot(clip, 1f);
+	}
 }

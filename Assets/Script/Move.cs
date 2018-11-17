@@ -37,6 +37,9 @@ public class Move : MonoBehaviour {
 
     void OnTriggerStay2D (Collider2D other)
 	{
+		if (other.gameObject.CompareTag ("Alea")) {
+		other.GetComponent<SpriteRenderer>().color = Color.gray;
+		}
 		if (Input.GetButtonDown ("Fire" + playerNumber.ToString ())) {
 			if (other.gameObject.CompareTag ("Case")) {
 				GameObject.FindWithTag ("ImageP" + playerNumber).transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
@@ -65,11 +68,18 @@ public class Move : MonoBehaviour {
 			}
 
 			if (other.gameObject.CompareTag ("Start")) {
-			    SceneManager.LoadScene(1);
+			    SceneManager.LoadScene(2);
 			}
         }
-        
+
     }
+
+    void OnTriggerExit2D (Collider2D col)
+	{
+		if (col.gameObject.CompareTag ("Alea")) {
+		col.GetComponent<SpriteRenderer>().color = Color.white;
+		}
+	}
 
     void Unselected(Collider2D other)
     {
@@ -84,7 +94,7 @@ public class Move : MonoBehaviour {
     void Selected(Collider2D other)
     {
         other.GetComponent<Collider2D>().enabled = false;
-        other.gameObject.transform.localScale = new Vector3(0.7665361F, 0.7969171F, 0);
+        //other.gameObject.transform.localScale = new Vector3(0.7665361F, 0.7969171F, 0);
         GameObject.FindWithTag("ImageP"+playerNumber).GetComponent<SpriteRenderer>().sprite = other.GetComponent<Case>().sprite;
         other.GetComponent<Case>().selected = true;
         caseSelec = other.GetComponent<Case>();
