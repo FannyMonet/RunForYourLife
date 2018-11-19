@@ -43,6 +43,8 @@ public class Move : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire" + playerNumber.ToString ())) {
 			if (other.gameObject.CompareTag ("Case")) {
 				GameObject.FindWithTag ("ImageP" + playerNumber).transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
+				GameObject.FindWithTag ("ImageP" + playerNumber+"Shadow").transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
+
 				if (caseSelec != null)
 					Unselected (other);
 				else {
@@ -57,6 +59,7 @@ public class Move : MonoBehaviour {
 				Case caseSel = listeAleatoire.listePerso [rand];
 				Debug.Log (rand);
 				GameObject.FindWithTag ("ImageP" + playerNumber).transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
+				GameObject.FindWithTag ("ImageP" + playerNumber+"Shadow").transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
 
 				if (caseSelec != null) {
 					UnselectAlea (caseSel);
@@ -96,6 +99,8 @@ public class Move : MonoBehaviour {
         other.GetComponent<Collider2D>().enabled = false;
         //other.gameObject.transform.localScale = new Vector3(0.7665361F, 0.7969171F, 0);
         GameObject.FindWithTag("ImageP"+playerNumber).GetComponent<SpriteRenderer>().sprite = other.GetComponent<Case>().sprite;
+		GameObject.FindWithTag("ImageP"+playerNumber+"Shadow").GetComponent<SpriteRenderer>().sprite = other.GetComponent<Case>().sprite;
+
         other.GetComponent<Case>().selected = true;
         caseSelec = other.GetComponent<Case>();
     }
@@ -106,6 +111,7 @@ public class Move : MonoBehaviour {
 			caseSel.gameObject.GetComponent<Collider2D> ().enabled = false;
 			caseSel.gameObject.transform.localScale = new Vector3 (0.7665361F, 0.7969171F, 0);
 			GameObject.FindWithTag ("ImageP" + playerNumber).GetComponent<SpriteRenderer> ().sprite = caseSel.sprite;
+			GameObject.FindWithTag ("ImageP" + playerNumber+"Shadow").GetComponent<SpriteRenderer> ().sprite = caseSel.sprite;
 			caseSel.gameObject.GetComponent<Case> ().selected = true;
 			caseSelec = caseSel;
 			supervisor.players[playerNumber-1] = caseSel.gameObject.GetComponent<Case>().prefab;

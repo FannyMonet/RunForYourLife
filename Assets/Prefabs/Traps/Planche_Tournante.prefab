@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 95038058852912752}
   - component: {fileID: 50363623885004770}
   m_Layer: 0
-  m_Name: Planche_Tournante
+  m_Name: 2
   m_TagString: WallJumpAllowed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

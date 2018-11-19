@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58960987349569440}
   - component: {fileID: 58560036781524564}
   m_Layer: 0
-  m_Name: Circular Saw_0
+  m_Name: 4
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

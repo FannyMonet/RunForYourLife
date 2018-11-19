@@ -30,6 +30,10 @@ TagManager:
   - Case
   - Alea
   - Start
+  - ImageP1Shadow
+  - ImageP2Shadow
+  - ImageP3Shadow
+  - ImageP4Shadow
   layers:
   - Default
   - TransparentFX

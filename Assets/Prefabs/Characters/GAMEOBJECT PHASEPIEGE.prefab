@@ -205,7 +205,7 @@ MonoBehaviour:
   prefab: {fileID: 1643780710891254, guid: c1e4b113382c16e408e2e9c10ef6f4da, type: 2}
   player: {fileID: 1308025375635872}
   trap: {fileID: 1273335650973122}
-  playerNumber: 2
+  playerNumber: 4
 --- !u!212 &212269816151769272
 SpriteRenderer:
   m_ObjectHideFlags: 1

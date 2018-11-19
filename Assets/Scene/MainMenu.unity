@@ -2051,6 +2051,7 @@ MonoBehaviour:
   playerNumber: 1
   camera: {fileID: 0}
   flag: {fileID: 0}
+  SoundManager: {fileID: 0}
 --- !u!1001 &1672848321
 Prefab:
   m_ObjectHideFlags: 0
