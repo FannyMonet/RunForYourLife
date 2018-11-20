@@ -6,14 +6,22 @@ public class Bombe_Behaviour : MonoBehaviour {
 
     public CircleCollider2D circleCollider;
 
+    public bool hasExploded;
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		Destroy(this.gameObject,1.6f);
+	void Update ()
+	{
+		Destroy (this.gameObject, 1.6f);
+
+		if (!hasExploded) {
+		GetComponent<AudioSource>().Play();
+		hasExploded = true;
+		}
 
 		if(circleCollider.radius<1.5)
 			circleCollider.radius+=0.02f;

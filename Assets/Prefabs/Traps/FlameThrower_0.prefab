@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61690563204283822}
   - component: {fileID: 50192901874818410}
   m_Layer: 0
-  m_Name: FlameThrower_0
+  m_Name: 1
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

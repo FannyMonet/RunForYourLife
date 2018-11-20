@@ -73,7 +73,8 @@ public class ScorePanelUI : MonoBehaviour {
 			//
 			bar1.GetComponent<RectTransform> ().sizeDelta = new Vector2 (counter[0]++, 100);
 		} else if (!supervisor.BoardIsDown) {
-			bar1.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * supervisor.scores [0], 100);
+
+			bar1.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * Mathf.Min(supervisor.scores [0], 10), 100);
 		}
 			bar1.GetComponent<RectTransform> ().localPosition = new Vector2 (120, 0);
 		
@@ -83,7 +84,7 @@ public class ScorePanelUI : MonoBehaviour {
 			//
 			bar2.GetComponent<RectTransform> ().sizeDelta = new Vector2 (counter[1]++, 100);
 		} else if (!supervisor.BoardIsDown) {
-			bar2.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * supervisor.scores [1], 100);
+			bar2.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * Mathf.Min(supervisor.scores [1], 10), 100);
 		}
 			bar2.GetComponent<RectTransform> ().localPosition = new Vector2 (120, 0);
 
@@ -94,7 +95,7 @@ public class ScorePanelUI : MonoBehaviour {
 			//
 			bar3.GetComponent<RectTransform> ().sizeDelta = new Vector2 (counter[2]++, 100);
 		} else if (!supervisor.BoardIsDown) {
-			bar3.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * supervisor.scores [2], 100);
+				bar3.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * Mathf.Min(supervisor.scores [2], 10), 100);
 		}
 			bar3.GetComponent<RectTransform> ().localPosition = new Vector2 (120, 0);
 		}
@@ -108,7 +109,7 @@ public class ScorePanelUI : MonoBehaviour {
 			//
 			bar4.GetComponent<RectTransform> ().sizeDelta = new Vector2 (counter[3]++, 100);
 		} else if (!supervisor.BoardIsDown) {
-			bar4.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * supervisor.scores [3], 100);
+				bar4.GetComponent<RectTransform> ().sizeDelta = new Vector2 ( 75 * Mathf.Min(supervisor.scores [3], 10), 100);
 		}
 			bar4.GetComponent<RectTransform> ().localPosition = new Vector2 (120, 0);
 		}

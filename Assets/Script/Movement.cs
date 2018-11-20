@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour {
 		if (camera.StartingGame) {//If the camera movement at the begining is over
 			isGrounded = Physics2D.OverlapCircle (feetPos.position, checkRadius, whatIsGround);
 			anim.SetBool ("Dead", dead); 
-			anim.SetBool ("Taunt", taunt);   
+			//anim.SetBool ("Taunt", taunt);   
 			if (!dead) {
 				if (isGrounded)
 					jumpTimeCounter = jumpTime;

@@ -21,6 +21,7 @@ public class Tramplin_Behaviour : MonoBehaviour {
 	void OnTriggerStay2D (Collider2D col)
 	{
 		if (col.CompareTag ("Player")) {
+		    GetComponent<AudioSource>().Play();
 			anim.SetTrigger ("TramplinActif");
 			col.GetComponent<Movement >().aRgbd.velocity = new Vector2 (col.GetComponent<Movement >().aRgbd.velocity.x, 150);
 		}

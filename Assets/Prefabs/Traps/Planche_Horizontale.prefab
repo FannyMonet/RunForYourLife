@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 61134541355313518}
   - component: {fileID: 50219992878831762}
   m_Layer: 8
-  m_Name: Planche_Horizontale
+  m_Name: 2
   m_TagString: WallJumpAllowed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

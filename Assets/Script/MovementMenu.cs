@@ -40,7 +40,7 @@ public class MovementMenu : MonoBehaviour {
             canWallJump = false;
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         anim.SetBool("Dead", dead);
-        anim.SetBool("Taunt", taunt);
+        //anim.SetBool("Taunt", taunt);
         if (!dead)
         {
             if (isGrounded)

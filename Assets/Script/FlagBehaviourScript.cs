@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FlagBehaviourScript : MonoBehaviour {
 
@@ -24,7 +25,10 @@ public class FlagBehaviourScript : MonoBehaviour {
 	public bool boardUp;
 	public bool endCinematic;
 
+	public Image winnerSprite;
+
     public Animator pictureScore;
+    public Animator WinPanel;
     public GameObject textPhase;
     public GameObject textPhaseShadow;
 
@@ -38,6 +42,11 @@ public class FlagBehaviourScript : MonoBehaviour {
 	public int n4;
 	public int n5;
 
+	public int scoreMax;
+	public bool aGagne;
+	public int gagnant;
+	public bool partieFinie;
+
 	// Use this for initialization
 	void Start () {
 	    supervisor = GameObject.Find("Supervisor").GetComponent<Supervisor>();
@@ -49,7 +58,10 @@ public class FlagBehaviourScript : MonoBehaviour {
 		waitingTime4 = waitingTimeAtStart*2;
 
 		tropFacile = GameObject.Find("tropFacile");
+		winnerSprite = GameObject.Find("Sprite Winner").GetComponent<Image>();
 		pictureScore = GameObject.Find("pictureScore").GetComponent<Animator>();
+		WinPanel = GameObject.Find("WINNER").GetComponent<Animator>();
+
 		textPhase = GameObject.Find("TextPhase");
 		textPhaseShadow = GameObject.Find("TextPhaseShadow");
 
@@ -58,12 +70,13 @@ public class FlagBehaviourScript : MonoBehaviour {
 		premier = true;
 		boardDown = false;
 		scoresKills = new int[nbPlayers];
+		scoreMax = 1;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (nbPlayers == nbFinis) {
+		if (nbPlayers == nbFinis && !partieFinie) {
 
 			tropFacile.SetActive (!someoneDead);//Reinitialisation du tableau des scores, le message "trop facile" reapparait
 
@@ -92,16 +105,26 @@ public class FlagBehaviourScript : MonoBehaviour {
 						}
 
 
-						Destroy (playerList [i]);
+						//
 					}
 				}
 				if (someoneDead) {
 					tropFacile.SetActive (false);//Si quelqu'un perd, "trop facile disparait"
 					//Debug.Log("TropFacileDesactive");
 					for (int i = 0; i < nbPlayers; i++) {
-						supervisor.scores [i] += scoresProvisoires [i];
+						if (playerList [i] != null) {
+							supervisor.scores [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1] += scoresProvisoires [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1];
+							if (supervisor.scores [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1] > scoreMax) {
+								scoreMax = supervisor.scores [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1];
+								aGagne = true;
+								gagnant = int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1;
+							} 
+						}
 					}
+
 				}
+				for (int i = 0; i < supervisor.playerNbr; i++)
+					Destroy (playerList [i]);
 				pictureScore.SetTrigger ("DescendTableau");
 				boardDown = true;
 				supervisor.BoardIsDown = true;
@@ -113,13 +136,20 @@ public class FlagBehaviourScript : MonoBehaviour {
 			if (boardDown)
 				waitingTime2--;
 			if (waitingTime2 < 0 && boardDown) {
-				if (Input.GetButton ("Fire1")) {
-					pictureScore.SetTrigger ("RemonteTableau");
-					boardUp = true;
-					boardDown = false;
-					supervisor.BoardIsDown = false;
 
+				if (Input.GetButton ("Fire1") || Input.GetButton ("Fire2") || Input.GetButton ("Fire3") || Input.GetButton ("Fire4")) {
+					if (!aGagne) {
+						pictureScore.SetTrigger ("RemonteTableau");
+						boardUp = true;
+						boardDown = false;
+						supervisor.BoardIsDown = false;
+					} else {
+						winnerSprite.sprite = supervisor.listOfAvatar [gagnant].GetComponent<SpriteRenderer> ().sprite;
+						WinPanel.SetTrigger ("down");
+						partieFinie = true;
+					}
 				}
+				/*else if (unjoueurAsGagne)*/
 			}
 			if (waitingTime3 < 0 && boardUp) {
 				textPhase.GetComponent<Animator> ().SetTrigger ("ActivatePhase");
@@ -155,18 +185,18 @@ public class FlagBehaviourScript : MonoBehaviour {
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//0
 					} else if (order [i] == 2) {
 						if (nbPlayers == 2) {
-							rand = Random.Range (n1+1, n5 + 1);
+							rand = Random.Range (n1 + 1, n5 + 1);
 						} else if (nbPlayers == 3) {
-							rand = Random.Range (n1+1, n4 + 1);
+							rand = Random.Range (n1 + 1, n4 + 1);
 						} else {
-							rand = Random.Range (n1+1, n3 + 1);
+							rand = Random.Range (n1 + 1, n3 + 1);
 						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];//2 et 3
 					} else if (order [i] == 3) {
-					    if (nbPlayers == 3) {
-							rand = Random.Range (n2+1, n5 + 1);
+						if (nbPlayers == 3) {
+							rand = Random.Range (n2 + 1, n5 + 1);
 						} else {
-							rand = Random.Range (n2+1, n4 + 1);
+							rand = Random.Range (n2 + 1, n4 + 1);
 						}
 						playerTrapList.GetComponent<PhasePiege> ().prefab = supervisor.TrapList [rand];
 					} else if (order [i] == 4) {
@@ -179,14 +209,14 @@ public class FlagBehaviourScript : MonoBehaviour {
 					}
 
 
-					Debug.Log("Le "+i+" e element a eu pour random : "+rand); 
+					Debug.Log ("Le " + i + " e element a eu pour random : " + rand); 
 					Instantiate (playerTrapList, supervisor.spawner [i].transform.position, Quaternion.identity);
 				}
 				nbFinis = 0;
 				waitingTime = waitingTimeAtStart;
 				waitingTime2 = waitingTimeAtStart;
 				waitingTime3 = waitingTimeAtStart;
-				waitingTime4 = waitingTimeAtStart*2;
+				waitingTime4 = waitingTimeAtStart * 2;
 				boardDown = false;
 				boardUp = false;
 				endCinematic = false;
@@ -194,16 +224,27 @@ public class FlagBehaviourScript : MonoBehaviour {
 
 
 
+
+
+
 			} else if (endCinematic) {
-			waitingTime4--;
+				waitingTime4--;
 
 			}
+
+		
 
 				
 					
 				
-		}
+		} else if (partieFinie) {
+			if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2") || Input.GetButtonDown ("Fire3") || Input.GetButtonDown ("Fire4")) {
+				Destroy (supervisor.gameObject);
+				Destroy (GameObject.Find ("Pre-supervisor"));
+				SceneManager.LoadScene (1);
 			}
+		}
+	}
 
 	
 

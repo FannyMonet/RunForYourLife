@@ -34,13 +34,15 @@ public class Supervisor : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
 	{
+
 		presupervisor = GameObject.Find ("Pre-supervisor").GetComponent<supervisorScript> ();
 		playerNbr = presupervisor.number;
 		listOfAvatar = new GameObject[playerNbr];
 		scores = new int[playerNbr];
 
 		listOfAvatarInstantiated = listOfAvatar;
-		if (!created) {
+		//TODO Remove created to play multiple 
+		//if (!created) {
 			DontDestroyOnLoad (this.gameObject);
 			created = true;
 			waitingTime = 120;
@@ -48,8 +50,11 @@ public class Supervisor : MonoBehaviour {
 			for (int i = 0; i < presupervisor.number; i++) {
 				listOfAvatar [i] = presupervisor.players [i];
 			}
-		}
+		//}
 	}
+
+
+
 
 	// Update is called once per frame
 	void Update ()
@@ -71,7 +76,6 @@ public class Supervisor : MonoBehaviour {
 			}
 			test = true;//remove this line
 			//Arrive dans la map = false;
-			//}
 		}
 
 		if (playerNbr == trapsSet && !trapSetOk) {
