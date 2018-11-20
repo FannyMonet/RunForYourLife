@@ -70,7 +70,7 @@ public class FlagBehaviourScript : MonoBehaviour {
 		premier = true;
 		boardDown = false;
 		scoresKills = new int[nbPlayers];
-		scoreMax = 1;
+		scoreMax = 9;
 	}
 	
 	// Update is called once per frame
