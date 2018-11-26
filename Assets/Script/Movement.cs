@@ -118,7 +118,7 @@ public class Movement : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
-	    if(col.tag.Equals("Trap")&& !dead){
+	    if(col.tag.Equals("Trap")&& !dead ){
 		   flag.playerList[flag.nbFinis] = this.gameObject;
 	       flag.nbFinis++;
 		   //Debug.Log((int)char.GetNumericValue(col.name,0));

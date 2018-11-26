@@ -38,7 +38,7 @@ public class Supervisor : MonoBehaviour {
 	void Awake ()
 	{
 
-		presupervisor = GameObject.Find ("Pre-supervisor").GetComponent<supervisorScript> ();
+		presupervisor = GameObject.Find ("Presupervisor").GetComponent<supervisorScript> ();
 		playerNbr = presupervisor.number;
 		listOfAvatar = new GameObject[playerNbr];
 		scores = new int[playerNbr];

@@ -15,7 +15,7 @@ public class Move : MonoBehaviour {
     void Start ()
 	{
 	     listeAleatoire = GameObject.Find("Aleatoire").GetComponent<Aleatoire>();
-		 supervisor = GameObject.Find("Pre-supervisor").GetComponent<supervisorScript>();
+		 supervisor = GameObject.Find("Presupervisor").GetComponent<supervisorScript>();
 	}
 
 	void Update ()
@@ -86,7 +86,7 @@ public class Move : MonoBehaviour {
 			}
 
 			if (other.CompareTag ("Start")) {
-			    SceneManager.LoadScene(2);
+			    SceneManager.LoadScene(supervisor.lvlNumber);
 			}
 
         }

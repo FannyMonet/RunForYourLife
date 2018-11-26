@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 50289590083678886}
   - component: {fileID: 95255338090326540}
   m_Layer: 8
-  m_Name: 1
+  m_Name: Tapis_roulant_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

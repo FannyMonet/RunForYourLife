@@ -254,7 +254,7 @@ public class FlagBehaviourScript : MonoBehaviour {
 		} else if (partieFinie) {
 			if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2") || Input.GetButtonDown ("Fire3") || Input.GetButtonDown ("Fire4")) {
 				Destroy (supervisor.gameObject);
-				Destroy (GameObject.Find ("Pre-supervisor"));
+				Destroy (GameObject.Find ("Presupervisor"));
 				SceneManager.LoadScene (1);
 			}
 		}

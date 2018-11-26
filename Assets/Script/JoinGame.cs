@@ -27,7 +27,7 @@ public class JoinGame : MonoBehaviour {
         Player2.SetActive(false);
         Player3.SetActive(false);
         Player4.SetActive(false);
-		supervisor = GameObject.Find("Pre-supervisor").GetComponent<supervisorScript>();
+		supervisor = GameObject.Find("Presupervisor").GetComponent<supervisorScript>();
   //  anim = textCantJoin.gameObject.GetComponent<Animator>();
     }
     void Update ()

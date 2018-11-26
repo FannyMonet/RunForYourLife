@@ -11,7 +11,7 @@ public class StartBehaviour : MonoBehaviour {
 	void Start () {
 		StartButton = GameObject.Find("Start");
 		StartButton.SetActive(false);
-		supervisor = GameObject.Find("Pre-supervisor").GetComponent<supervisorScript>();
+		supervisor = GameObject.Find("Presupervisor").GetComponent<supervisorScript>();
 	}
 	
 	// Update is called once per frame

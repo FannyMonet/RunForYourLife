@@ -8,6 +8,8 @@ public class supervisorScript : MonoBehaviour {
     public int number;
     public int numberSelected;
 
+    public int lvlNumber;
+
 
     void Start ()
 	{
