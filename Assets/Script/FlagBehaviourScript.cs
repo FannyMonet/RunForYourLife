@@ -264,11 +264,11 @@ public class FlagBehaviourScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.CompareTag ("Player")) {
+		if (col.CompareTag ("Player") && !col.GetComponent<Movement>().dead) {
 		    playerList[nbFinis] = col.gameObject;
 			nbFinis += 1;
 			col.GetComponent<Movement>().enabled=false;
-			col.GetComponent<Rigidbody2D>().AddForce(new Vector2(-col.GetComponent<Rigidbody2D>().velocity.x,0));
+			col.GetComponent<Rigidbody2D>().AddForce(new Vector2(-col.GetComponent<Rigidbody2D>().velocity.x,-20));
 
 		}
 	}

@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 82968240190904900}
   - component: {fileID: 50905669647320724}
   m_Layer: 0
-  m_Name: Tramplin
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

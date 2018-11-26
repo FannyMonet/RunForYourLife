@@ -183,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 1308025375635872}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9fe53acd63385d14585c77751fcd2ac9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2308438074c9d624da8325ccc0933752, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eed19e48689f8741b34be286e418c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1170488736894860, guid: 7dd08e6df31aeb54a86f113011290e41, type: 2}
+  prefab: {fileID: 1909771209513884, guid: d6684d26d30a628498d5783e981d45ff, type: 2}
   player: {fileID: 1308025375635872}
   trap: {fileID: 1273335650973122}
   playerNumber: 2
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2e80ba122652d745a0a4472ec2c1bbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19b28004f485bed4691543e624673bf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.816}
   m_FlipX: 0
   m_FlipY: 0

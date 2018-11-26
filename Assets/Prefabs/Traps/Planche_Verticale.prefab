@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61956172885401066}
   - component: {fileID: 50429886937011704}
   m_Layer: 0
-  m_Name: Planche_Verticale
+  m_Name: 1
   m_TagString: WallJumpAllowed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
