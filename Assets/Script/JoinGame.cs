@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JoinGame : MonoBehaviour {
     public GameObject Player1;
@@ -14,7 +15,11 @@ public class JoinGame : MonoBehaviour {
 	public bool player3IsIn;
 	public bool player4IsIn;
 
+	public Text textCantJoin;
+
 	public supervisorScript supervisor;
+
+  public Animator anim;
 
     void Start()
     {
@@ -23,9 +28,12 @@ public class JoinGame : MonoBehaviour {
         Player3.SetActive(false);
         Player4.SetActive(false);
 		supervisor = GameObject.Find("Pre-supervisor").GetComponent<supervisorScript>();
+  //  anim = textCantJoin.gameObject.GetComponent<Animator>();
     }
     void Update ()
 	{
+
+	    //textCantJoin.text.
 		if (Input.GetButtonDown ("Fire1")) {
 			Player1.SetActive (true);
 			if (!player1IsIn) {
@@ -34,29 +42,50 @@ public class JoinGame : MonoBehaviour {
 			}
 
 
+
 		}
 
-		if (Input.GetButtonDown ("Fire2") && player1IsIn) {
-			Player2.SetActive (true);
-			if (!player2IsIn) {
-				supervisor.number += 1;
-				player2IsIn = true;
+		if (Input.GetButtonDown ("Fire2")) {
+			if (player1IsIn) {
+				Player2.SetActive (true);
+				if (!player2IsIn) {
+					supervisor.number += 1;
+					player2IsIn = true;
+				}
+			} else {
+        anim.SetTrigger("TryToJoin");
+			    textCantJoin.text = "le premier joueur doit etre connecte pour que le second rejoigne la partie !";
 			}
 		}
-		if (Input.GetButtonDown ("Fire3") && player2IsIn) {
+		if (Input.GetButtonDown ("Fire3")) {
+      if(player2IsIn){
 			Player3.SetActive (true);
-			if (!player3IsIn) {
-				supervisor.number+=1;
-				player3IsIn = true;
-			}
+      if (!player3IsIn) {
+        supervisor.number += 1;
+        player3IsIn = true;
+      }
+    }
+      else {
+        anim.SetTrigger("TryToJoin");
 
-		}
-		if (Input.GetButtonDown ("Fire4") && player3IsIn) {
+          textCantJoin.text = "le second joueur doit etre connecte pour que le troisieme rejoigne la partie !";
+      }
+    }
+
+		if (Input.GetButtonDown ("Fire4")) {
+      if(player3IsIn){
 			Player4.SetActive (true);
-			if (!player4IsIn) {
-				supervisor.number+=1;
-				player4IsIn = true;
-			}
+      if (!player4IsIn) {
+        supervisor.number += 1;
+        player4IsIn = true;
+      }
+    }
+      else {
+        anim.SetTrigger("TryToJoin");
+
+          textCantJoin.text = "le troisieme joueur doit etre connecte pour que le quatrieme rejoigne la partie !";
+      }
         }
     }
-}
+
+  }

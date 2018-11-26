@@ -27,6 +27,8 @@ public class MovementMenu : MonoBehaviour {
 
     public string playerNumber;
 
+    public BoxCollider feet;
+
     // Use this for initialization
     void Start () {
         aRgbd = gameObject.GetComponent<Rigidbody2D>();
@@ -38,7 +40,8 @@ public class MovementMenu : MonoBehaviour {
 	void Update () {
         if (isGrounded)
             canWallJump = false;
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        //isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+		//isGrounded = feet.//Physics2D.OverlapBox(feetPos.position,new Vector2(0.72f, 0.1f), whatIsGround);
         anim.SetBool("Dead", dead);
         //anim.SetBool("Taunt", taunt);
         if (!dead)
@@ -117,4 +120,5 @@ public class MovementMenu : MonoBehaviour {
             }
         }
     }
+
 }

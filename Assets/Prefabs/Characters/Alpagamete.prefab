@@ -57,6 +57,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4088006813151592}
+  - component: {fileID: 61075148369283386}
+  - component: {fileID: 114136416349189318}
   m_Layer: 0
   m_Name: FeetPos
   m_TagString: Untagged
@@ -101,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313760070421824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.79, y: 0.94, z: 0}
+  m_LocalPosition: {x: -15.135139, y: -4.932595, z: 0}
   m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_Children:
   - {fileID: 4088006813151592}
@@ -156,19 +158,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61146905135148334
+--- !u!61 &61075148369283386
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110421339068962}
+  m_GameObject: {fileID: 1333174131422170}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.40309143}
+  m_Offset: {x: -0.17046028, y: -0.05402577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -179,7 +181,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.19381714}
+  m_Size: {x: 0.706753, y: 0.056702375}
+  m_EdgeRadius: 0
+--- !u!61 &61146905135148334
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110421339068962}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.20854434, y: 0.40309143}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.67559844, y: 0.19381714}
   m_EdgeRadius: 0
 --- !u!61 &61277494524817176
 BoxCollider2D:
@@ -427,6 +454,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114136416349189318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333174131422170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3ea5eea20df914abbcb8401608d96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  player_menu: {fileID: 0}
+  inMenu: 0
 --- !u!114 &114921436063305240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,6 +502,7 @@ MonoBehaviour:
   playerNumber: 1
   camera: {fileID: 0}
   flag: {fileID: 0}
+  SoundManager: {fileID: 0}
 --- !u!114 &114968618399059206
 MonoBehaviour:
   m_ObjectHideFlags: 1

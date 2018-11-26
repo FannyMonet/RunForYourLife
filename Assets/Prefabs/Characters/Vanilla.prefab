@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1674227861902778}
   m_IsPrefabParent: 1
+--- !u!1 &1268101227688448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4797510187102810}
+  - component: {fileID: 61481850041021366}
+  - component: {fileID: 114158794570681734}
+  m_Layer: 0
+  m_Name: FeetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1372333196564578
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,21 +39,6 @@ GameObject:
   - component: {fileID: 61539063694630802}
   m_Layer: 8
   m_Name: JumpOnHead
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1430115699085188
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4418528806685210}
-  m_Layer: 0
-  m_Name: FeetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,15 +96,15 @@ Transform:
   m_Father: {fileID: 4823844414297636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4418528806685210
+--- !u!4 &4797510187102810
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430115699085188}
+  m_GameObject: {fileID: 1268101227688448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.34, y: -0.26, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4823844414297636}
   m_RootOrder: 2
@@ -114,12 +116,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674227861902778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3486795, y: -1.1316494, z: 0}
+  m_LocalPosition: {x: -12.304173, y: -4.4938855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4868890787003064}
   - {fileID: 4323081828862794}
-  - {fileID: 4418528806685210}
+  - {fileID: 4797510187102810}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,6 +183,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7256716, y: 0.4982996}
   m_EdgeRadius: 0
+--- !u!61 &61481850041021366
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268101227688448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.17046028, y: -0.05402577}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.706753, y: 0.056702375}
+  m_EdgeRadius: 0
 --- !u!61 &61539063694630802
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -190,7 +217,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.40309143}
@@ -427,6 +454,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114158794570681734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268101227688448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3ea5eea20df914abbcb8401608d96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  player_menu: {fileID: 0}
+  inMenu: 0
 --- !u!114 &114470944700182808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,16 +504,17 @@ MonoBehaviour:
   canWallJump: 0
   clip: {fileID: 8300000, guid: 0c76833c28462414a88fc7fe13c8d08e, type: 3}
   taunt: {fileID: 0}
-  feetPos: {fileID: 4418528806685210}
+  feetPos: {fileID: 0}
   checkRadius: 0.3
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   jumpTimeCounter: 0
   jumpTime: 0.1
-  playerNumber: 
+  playerNumber: 1
   camera: {fileID: 0}
   flag: {fileID: 0}
+  SoundManager: {fileID: 0}
 --- !u!212 &212674231010707620
 SpriteRenderer:
   m_ObjectHideFlags: 1

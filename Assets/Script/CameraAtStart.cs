@@ -28,6 +28,8 @@ public class CameraAtStart : MonoBehaviour {
     public AudioSource ambianceSound;
     public AudioClip[] clips;
 
+    public Countdown countdown;
+
 
 	// Amplitude of the shake. A larger value shakes the camera harder.
 	public float shakeAmount = 5f;
@@ -36,6 +38,7 @@ public class CameraAtStart : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cameraSize = this.gameObject.GetComponent<Camera>().orthographicSize;
+		countdown = GameObject.Find("Countdown").GetComponent<Countdown>();
 	}
 	
 	// Update is called once per frame
@@ -81,6 +84,7 @@ public class CameraAtStart : MonoBehaviour {
 							StartingGame = true;
 							colour.text = "";
 						    shadow.text = "";
+						    countdown.countdown = 45;
 						}
 					}
 

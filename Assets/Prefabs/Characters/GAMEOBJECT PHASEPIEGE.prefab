@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eed19e48689f8741b34be286e418c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1643780710891254, guid: c1e4b113382c16e408e2e9c10ef6f4da, type: 2}
+  prefab: {fileID: 1170488736894860, guid: 7dd08e6df31aeb54a86f113011290e41, type: 2}
   player: {fileID: 1308025375635872}
   trap: {fileID: 1273335650973122}
   playerNumber: 2

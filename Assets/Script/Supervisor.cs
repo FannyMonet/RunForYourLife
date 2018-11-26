@@ -31,6 +31,9 @@ public class Supervisor : MonoBehaviour {
 
 	public bool test;
 
+	public Countdown countdown;
+
+	public bool phasePiege;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -43,14 +46,17 @@ public class Supervisor : MonoBehaviour {
 		listOfAvatarInstantiated = listOfAvatar;
 		//TODO Remove created to play multiple 
 		//if (!created) {
-			DontDestroyOnLoad (this.gameObject);
+			//DontDestroyOnLoad (this.gameObject);
 			created = true;
 			waitingTime = 120;
 			spawner = new GameObject[4];
 			for (int i = 0; i < presupervisor.number; i++) {
 				listOfAvatar [i] = presupervisor.players [i];
-			}
-		//}
+		//	}
+		}
+
+		countdown = GameObject.Find("Countdown").GetComponent<Countdown>();
+
 	}
 
 
@@ -59,6 +65,8 @@ public class Supervisor : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+
+		
 		
 		if (!test) {
 			spawner [0] = GameObject.Find ("J1");
@@ -78,13 +86,26 @@ public class Supervisor : MonoBehaviour {
 			//Arrive dans la map = false;
 		}
 
+
+		if (countdown.countdown == 0 && phasePiege) {
+			GameObject[] characterTrap = GameObject.FindGameObjectsWithTag ("CharacterTrap");
+			foreach (GameObject character in characterTrap) {
+			   character.GetComponent<PhasePiege>().DestroyPhasePiege();
+			}
+			phasePiege = false;
+		}
+
 		if (playerNbr == trapsSet && !trapSetOk) {
+			phasePiege = false;
 			GameObject.Find ("TextPhase").GetComponent<Text> ().text = "Phase Course";
 			GameObject.Find ("TextPhaseShadow").GetComponent<Text> ().text = "Phase Course";
 
 			GameObject.Find ("TextPhase").GetComponent<Animator> ().SetTrigger ("ActivatePhase");
 			GameObject.Find ("TextPhaseShadow").GetComponent<Animator> ().SetTrigger ("ActivatePhase");
 			trapSetOk = true;
+
+			//Reset the countdown
+			countdown.countdown = 45;
 		} 
 		if (trapSetOk) {
 			if (waitingTime < 0) {

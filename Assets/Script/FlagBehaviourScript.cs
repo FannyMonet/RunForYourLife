@@ -47,6 +47,8 @@ public class FlagBehaviourScript : MonoBehaviour {
 	public int gagnant;
 	public bool partieFinie;
 
+	public Countdown countdown;
+
 	// Use this for initialization
 	void Start () {
 	    supervisor = GameObject.Find("Supervisor").GetComponent<Supervisor>();
@@ -71,13 +73,23 @@ public class FlagBehaviourScript : MonoBehaviour {
 		boardDown = false;
 		scoresKills = new int[nbPlayers];
 		scoreMax = 9;
+
+		countdown = GameObject.Find("Countdown").GetComponent<Countdown>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if (countdown.countdown == 0) {
+			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+			foreach (GameObject p in players) {
+				if (p.GetComponent<Movement> ().enabled) {
+					p.GetComponent<Movement> ().countdownEnd ();
+				}
+			}
+		}
 		if (nbPlayers == nbFinis && !partieFinie) {
-
+		    countdown.countdown = -1;
 			tropFacile.SetActive (!someoneDead);//Reinitialisation du tableau des scores, le message "trop facile" reapparait
 
 			waitingTime--;
@@ -167,7 +179,7 @@ public class FlagBehaviourScript : MonoBehaviour {
 				//Get all traps in scene
 				GameObject[] listOfTraps = GameObject.FindGameObjectsWithTag ("Trap");
 				if (listOfTraps.Length > 5) {
-					bomb = Random.Range (0, 4);
+					bomb = Random.Range (0, supervisor.playerNbr);
 				}
 				for (int i = 0; i < nbPlayers; i++) {
 					playerTrapList.GetComponentInChildren<SpriteRenderer> ().sprite = supervisor.listOfAvatar [i].GetComponent<SpriteRenderer> ().sprite;
@@ -211,6 +223,7 @@ public class FlagBehaviourScript : MonoBehaviour {
 
 					Debug.Log ("Le " + i + " e element a eu pour random : " + rand); 
 					Instantiate (playerTrapList, supervisor.spawner [i].transform.position, Quaternion.identity);
+
 				}
 				nbFinis = 0;
 				waitingTime = waitingTimeAtStart;
@@ -221,7 +234,8 @@ public class FlagBehaviourScript : MonoBehaviour {
 				boardUp = false;
 				endCinematic = false;
 				someoneDead = false;
-
+				supervisor.phasePiege = true;
+				countdown.countdown = 15;
 
 
 

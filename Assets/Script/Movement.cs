@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour {
 	if(isGrounded)
 	canWallJump = false;
 		if (camera.StartingGame) {//If the camera movement at the begining is over
-			isGrounded = Physics2D.OverlapCircle (feetPos.position, checkRadius, whatIsGround);
+			//isGrounded = Physics2D.OverlapCircle (feetPos.position, checkRadius, whatIsGround);
 			anim.SetBool ("Dead", dead); 
 			//anim.SetBool ("Taunt", taunt);   
 			if (!dead) {
@@ -131,5 +131,17 @@ public class Movement : MonoBehaviour {
 	       source.PlayOneShot(clip);
 	    }
 
+	}
+
+
+	public void countdownEnd ()
+	{
+		flag.playerList[flag.nbFinis] = this.gameObject;
+	    flag.nbFinis++;
+		  
+	    flag.someoneDead = true;
+
+	    dead = true;
+	    this.enabled = false;
 	}
 }

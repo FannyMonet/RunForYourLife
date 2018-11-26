@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61602813619254594}
   - component: {fileID: 114277798786118330}
   m_Layer: 8
-  m_Name: 2
+  m_Name: Planche Piege
   m_TagString: WallJumpAllowed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

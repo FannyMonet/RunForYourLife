@@ -89,4 +89,10 @@ public class PhasePiege : MonoBehaviour {
 		   canPlaceHere = true;
 		}
 	}
+
+	public void DestroyPhasePiege ()
+	{
+		GameObject.Find("Supervisor").GetComponent<Supervisor>().trapsSet++;
+		Destroy(this.gameObject);
+	}
 }

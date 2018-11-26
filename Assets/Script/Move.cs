@@ -10,12 +10,22 @@ public class Move : MonoBehaviour {
     public Aleatoire listeAleatoire;
     public supervisorScript supervisor;
 
+    private bool clicked;
+
     void Start ()
 	{
 	     listeAleatoire = GameObject.Find("Aleatoire").GetComponent<Aleatoire>();
 		 supervisor = GameObject.Find("Pre-supervisor").GetComponent<supervisorScript>();
 	}
 
+	void Update ()
+	{
+		clicked = false;
+		if(Input.GetButtonDown ("Fire" + playerNumber.ToString ())){
+		    clicked = true;
+		}
+
+	}
 
 	// Update is called once per frame
 	void FixedUpdate ()
@@ -40,8 +50,13 @@ public class Move : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Alea")) {
 		other.GetComponent<SpriteRenderer>().color = Color.gray;
 		}
-		if (Input.GetButtonDown ("Fire" + playerNumber.ToString ())) {
-			if (other.gameObject.CompareTag ("Case")) {
+        else if (other.CompareTag("Case"))
+        {
+            other.GetComponent<Animator>().enabled = true;
+        }
+
+		if (clicked) {
+			if (other.CompareTag ("Case")) {
 				GameObject.FindWithTag ("ImageP" + playerNumber).transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
 				GameObject.FindWithTag ("ImageP" + playerNumber+"Shadow").transform.localScale = new Vector3 (5.832718F, 6.893026F, 1F);
 
@@ -54,7 +69,7 @@ public class Move : MonoBehaviour {
 				supervisor.players [playerNumber - 1] = other.gameObject.GetComponent<Case> ().prefab;
 			}
 
-			if (other.gameObject.CompareTag ("Alea")) {
+			if (other.CompareTag ("Alea")) {
 				int rand = Random.Range (0, 10);
 				Case caseSel = listeAleatoire.listePerso [rand];
 				Debug.Log (rand);
@@ -70,17 +85,20 @@ public class Move : MonoBehaviour {
 				SelectAlea (caseSel);
 			}
 
-			if (other.gameObject.CompareTag ("Start")) {
+			if (other.CompareTag ("Start")) {
 			    SceneManager.LoadScene(2);
 			}
+
         }
 
     }
 
     void OnTriggerExit2D (Collider2D col)
 	{
-		if (col.gameObject.CompareTag ("Alea")) {
-		col.GetComponent<SpriteRenderer>().color = Color.white;
+		if (col.CompareTag ("Alea")) {
+			col.GetComponent<SpriteRenderer> ().color = Color.white;
+		} else if (col.CompareTag ("Case")) {
+		    col.GetComponent<Animator>().enabled = false;
 		}
 	}
 
@@ -88,6 +106,8 @@ public class Move : MonoBehaviour {
     {
         if (GameObject.FindWithTag("ImageP"+playerNumber).GetComponent<SpriteRenderer>().sprite != other.GetComponent<Case>().sprite)
         {
+			caseSelec.GetComponent<SpriteRenderer>().color = Color.white;
+
             caseSelec.GetComponent<Collider2D>().enabled = true;
             caseSelec.GetComponent<Case>().selected = false;
             caseSelec = null;
@@ -96,6 +116,7 @@ public class Move : MonoBehaviour {
 
     void Selected(Collider2D other)
     {
+		other.GetComponent<SpriteRenderer>().color = Color.gray;
         other.GetComponent<Collider2D>().enabled = false;
         //other.gameObject.transform.localScale = new Vector3(0.7665361F, 0.7969171F, 0);
         GameObject.FindWithTag("ImageP"+playerNumber).GetComponent<SpriteRenderer>().sprite = other.GetComponent<Case>().sprite;
@@ -108,6 +129,8 @@ public class Move : MonoBehaviour {
     void SelectAlea (Case caseSel)
 	{
 		if (!caseSel.selected) {
+			caseSel.GetComponent<SpriteRenderer>().color = Color.gray;
+
 			caseSel.gameObject.GetComponent<Collider2D> ().enabled = false;
 			caseSel.gameObject.transform.localScale = new Vector3 (0.7665361F, 0.7969171F, 0);
 			GameObject.FindWithTag ("ImageP" + playerNumber).GetComponent<SpriteRenderer> ().sprite = caseSel.sprite;
@@ -129,6 +152,8 @@ public class Move : MonoBehaviour {
     {
         if (GameObject.FindWithTag("ImageP"+playerNumber).GetComponent<SpriteRenderer>().sprite != caseSel.sprite)
         {
+			caseSelec.GetComponent<SpriteRenderer>().color = Color.white;
+
             caseSelec.gameObject.GetComponent<Collider2D>().enabled = true;
             caseSelec.gameObject.GetComponent<Case>().selected = false;
             caseSelec = null;
