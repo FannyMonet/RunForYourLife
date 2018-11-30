@@ -14,8 +14,11 @@ public AudioClip clip;
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.tag.Equals ("Player")) {//If the game object is a player, it play a sound of falling
+		if (col.tag.Equals ("Player") && !col.GetComponent<Movement>().dead) {//If the game object is a player, it play a sound of falling
 			audio.PlayOneShot (clip);
+			col.GetComponent<Movement>().dead = true;
+			col.GetComponent<Movement>().flag.playerList[col.GetComponent<Movement>().flag.nbFinis] = col.gameObject;
+			col.GetComponent<Movement>().flag.nbFinis++;
 		} 
 		if(!col.tag.Equals("CharacterTrap"))
 	   Destroy(col.gameObject, 2f);

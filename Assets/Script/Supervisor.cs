@@ -34,11 +34,22 @@ public class Supervisor : MonoBehaviour {
 	public Countdown countdown;
 
 	public bool phasePiege;
+
+	public SoundManager soundManager;
 	// Use this for initialization
 	void Awake ()
 	{
 
 		presupervisor = GameObject.Find ("Presupervisor").GetComponent<supervisorScript> ();
+
+		soundManager = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
+
+
+		foreach (AudioSource audio in soundManager.sourceList) {
+		   audio.Stop();
+		   audio.Play();
+		}
+
 		playerNbr = presupervisor.number;
 		listOfAvatar = new GameObject[playerNbr];
 		scores = new int[playerNbr];
@@ -67,7 +78,7 @@ public class Supervisor : MonoBehaviour {
 	{
 
 		
-		
+		SoundEqualizer();
 		if (!test) {
 			spawner [0] = GameObject.Find ("J1");
 			spawner [1] = GameObject.Find ("J2");
@@ -149,6 +160,19 @@ public class Supervisor : MonoBehaviour {
 			highest = higher;
 		}
 		return order;
+	}
+
+
+	void SoundEqualizer ()
+	{
+		float somme = 0;
+		for (int i = 0; i < playerNbr; i++) {
+		    somme += scores[i];
+		} 
+	    float delta = 2* playerNbr + somme;
+		for (int i = 0; i < playerNbr; i++) {
+		    soundManager.sourceList[i].volume = ((scores[i]+2)/delta)*playerNbr/2;
+		} 
 	}
 
 }

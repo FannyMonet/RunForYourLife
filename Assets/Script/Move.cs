@@ -12,10 +12,13 @@ public class Move : MonoBehaviour {
 
     private bool clicked;
 
+    public SoundManager soundManager;
+
     void Start ()
 	{
 	     listeAleatoire = GameObject.Find("Aleatoire").GetComponent<Aleatoire>();
 		 supervisor = GameObject.Find("Presupervisor").GetComponent<supervisorScript>();
+		 soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 
 	void Update ()
@@ -29,22 +32,31 @@ public class Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate ()
-    {
-        float h = Input.GetAxis("Horizontal" +playerNumber.ToString());
-        float v = Input.GetAxis("Vertical" + playerNumber.ToString());
+	{
+		float h = Input.GetAxis ("Horizontal" + playerNumber.ToString ());
+		float v = Input.GetAxis ("Vertical" + playerNumber.ToString ());
 
-		if (Input.GetAxis("Horizontal"+playerNumber.ToString()) > 0.01f)
-            this.transform.Translate( new Vector3(h * speed, 0, 0));
-		else if(Input.GetAxis("Horizontal"+playerNumber.ToString()) <- 0.01f)
-                        this.transform.Translate(new Vector3(h * speed, 0, 0));
+		if (Input.GetAxis ("Horizontal" + playerNumber.ToString ()) > 0.01f) {
+			if (this.transform.position.x < 13) {
+				this.transform.Translate (new Vector3 (h * speed, 0, 0));
+			}
+		} else if (Input.GetAxis ("Horizontal" + playerNumber.ToString ()) < -0.01f) {
+			if (this.transform.position.x > -13) {
+				this.transform.Translate (new Vector3 (h * speed, 0, 0));
+			}
+		}
 
-		if (Input.GetAxis("Vertical"+playerNumber.ToString()) > 0.01f)
-            this.transform.Translate(new Vector3(0,v * speed, 0));
-		else if (Input.GetAxis("Vertical"+playerNumber.ToString()) < -0.01f)
-            this.transform.Translate(new Vector3(0, v * speed, 0));
+		if (Input.GetAxis ("Vertical" + playerNumber.ToString ()) > 0.01f) {
+			if (this.transform.position.y < 6) {
+				this.transform.Translate (new Vector3 (0, v * speed, 0));
+			}
+		} else if (Input.GetAxis ("Vertical" + playerNumber.ToString ()) < -0.01f) {
+			if (this.transform.position.y > -6) {
+				this.transform.Translate (new Vector3 (0, v * speed, 0));
 
-    }
-
+			}
+		}
+	}
     void OnTriggerStay2D (Collider2D other)
 	{
 		if (other.gameObject.CompareTag ("Alea")) {
@@ -64,6 +76,7 @@ public class Move : MonoBehaviour {
 					Unselected (other);
 				else {
 					supervisor.numberSelected += 1;
+
 				}
 				Selected (other);
 				supervisor.players [playerNumber - 1] = other.gameObject.GetComponent<Case> ().prefab;
@@ -124,6 +137,31 @@ public class Move : MonoBehaviour {
 
         other.GetComponent<Case>().selected = true;
         caseSelec = other.GetComponent<Case>();
+		bool isInListe;
+		int rand;
+        do{
+            isInListe = false;
+			rand = Random.Range(0,8);
+            for(int i =0; i<soundManager.indexS.Length; i++)
+            {
+				if(rand==soundManager.indexS[i])
+				{
+				  isInListe = true;
+				}
+            }
+
+        } while(isInListe);
+       
+		soundManager.indexS[playerNumber-1] = rand;
+		soundManager.sourceList[playerNumber-1].clip = soundManager.clip[rand];
+
+		soundManager.sourceList[0].Play();
+		soundManager.sourceList[1].Play();
+		soundManager.sourceList[2].Play();
+		soundManager.sourceList[3].Play();
+
+		
+
     }
 
     void SelectAlea (Case caseSel)
@@ -138,6 +176,31 @@ public class Move : MonoBehaviour {
 			caseSel.gameObject.GetComponent<Case> ().selected = true;
 			caseSelec = caseSel;
 			supervisor.players[playerNumber-1] = caseSel.gameObject.GetComponent<Case>().prefab;
+
+			bool isInListe;
+		   int rand;
+        do{
+            isInListe = false;
+			rand = Random.Range(0,8);
+            for(int i =0; i<soundManager.indexS.Length; i++)
+            {
+				if(rand==soundManager.indexS[i])
+				{
+				  isInListe = true;
+				}
+            }
+
+        } while(isInListe);
+       
+		soundManager.indexS[playerNumber-1] = rand;
+		soundManager.sourceList[playerNumber-1].clip = soundManager.clip[rand];
+
+		soundManager.sourceList[0].Play();
+		soundManager.sourceList[1].Play();
+		soundManager.sourceList[2].Play();
+		soundManager.sourceList[3].Play();
+
+
 
 		} else {
 

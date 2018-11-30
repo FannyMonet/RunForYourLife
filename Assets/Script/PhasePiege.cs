@@ -52,19 +52,23 @@ public class PhasePiege : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		if (Input.GetAxis ("Horizontal"+playerNumber) < -0.1f) {//Allow to move left
-
-			this.gameObject.transform.Translate (new Vector3 (-0.1f, 0, 0));
+		if (Input.GetAxis ("Horizontal" + playerNumber) < -0.1f) {//Allow to move left
+			if (this.transform.position.x > -14) {
+				this.gameObject.transform.Translate (new Vector3 (-0.1f, 0, 0));
+			}
+		} else if (Input.GetAxis ("Horizontal" + playerNumber) > 0.1f) {
+			if (this.transform.position.x < 15) {
+				this.gameObject.transform.Translate (new Vector3 (0.1f, 0, 0));
+			}
 		}
-		else if(Input.GetAxis ("Horizontal"+playerNumber) > 0.1f){
-			this.gameObject.transform.Translate(new Vector3(0.1f,0,0));
-		}
-		if (Input.GetAxis ("Vertical"+playerNumber) < -0.1f) {//Allow to move left
-
-			this.gameObject.transform.Translate (new Vector3 (0, -0.1f, 0));
-		}
-		else if(Input.GetAxis ("Vertical"+playerNumber) > 0.1f){
-			this.gameObject.transform.Translate(new Vector3(0,0.1f,0));
+		if (Input.GetAxis ("Vertical" + playerNumber) < -0.1f) {//Allow to move left
+			if (this.transform.position.y > -7) {
+				this.gameObject.transform.Translate (new Vector3 (0, -0.1f, 0));
+			}
+		} else if (Input.GetAxis ("Vertical" + playerNumber) > 0.1f) {
+			if (this.transform.position.y < 9) {
+				this.gameObject.transform.Translate (new Vector3 (0, 0.1f, 0));
+			}
 		}
 	}
 

@@ -18,6 +18,7 @@ public class PlanchePiege_Behaviour : MonoBehaviour {
 	{
 		if (flag.boardDown) {
 		this.transform.position = pos_;
+		this.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 		}
 	}
 }

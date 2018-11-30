@@ -19,6 +19,8 @@ public class JoinGame : MonoBehaviour {
 
 	public supervisorScript supervisor;
 
+	public SoundManager soundManager;
+
   public Animator anim;
 
     void Start()
@@ -28,6 +30,8 @@ public class JoinGame : MonoBehaviour {
         Player3.SetActive(false);
         Player4.SetActive(false);
 		supervisor = GameObject.Find("Presupervisor").GetComponent<supervisorScript>();
+		soundManager= GameObject.Find("SoundManager").GetComponent<SoundManager>();
+		soundManager.GetComponent<AudioSource>().Stop();
   //  anim = textCantJoin.gameObject.GetComponent<Animator>();
     }
     void Update ()

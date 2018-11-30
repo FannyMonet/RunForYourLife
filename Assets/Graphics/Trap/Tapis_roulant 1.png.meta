@@ -95,10 +95,10 @@ TextureImporter:
       name: Tapis_roulant 1_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 159
-        width: 449
-        height: 105
+        x: 3
+        y: 86
+        width: 247
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,10 +109,10 @@ TextureImporter:
       name: Tapis_roulant 1_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 24
-        width: 449
-        height: 105
+        x: 4
+        y: 13
+        width: 246
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

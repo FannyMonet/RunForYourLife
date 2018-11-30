@@ -34,6 +34,7 @@ TagManager:
   - ImageP2Shadow
   - ImageP3Shadow
   - ImageP4Shadow
+  - DeadLine
   layers:
   - Default
   - TransparentFX

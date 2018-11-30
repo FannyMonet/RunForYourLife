@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour {
 
 
 	void Start () {
-	    Destroy(GameObject.Find("SoundManager"));
+	   // Destroy(GameObject.Find("SoundManager"));
 		aRgbd = gameObject.GetComponent<Rigidbody2D>();
 		source = gameObject.GetComponent<AudioSource>();
 		anim = gameObject.GetComponent<Animator>();
@@ -130,6 +130,8 @@ public class Movement : MonoBehaviour {
 	       dead = true;
 	       source.PlayOneShot(clip);
 	    }
+
+
 
 	}
 
