@@ -16,9 +16,12 @@ public AudioClip clip;
 	{
 		if (col.tag.Equals ("Player") && !col.GetComponent<Movement>().dead) {//If the game object is a player, it play a sound of falling
 			audio.PlayOneShot (clip);
-			col.GetComponent<Movement>().dead = true;
 			col.GetComponent<Movement>().flag.playerList[col.GetComponent<Movement>().flag.nbFinis] = col.gameObject;
 			col.GetComponent<Movement>().flag.nbFinis++;
+			col.GetComponent<Movement>().flag.someoneDead = true;
+			col.GetComponent<Movement>().dead = true;
+
+
 		} 
 		if(!col.tag.Equals("CharacterTrap"))
 	   Destroy(col.gameObject, 2f);
