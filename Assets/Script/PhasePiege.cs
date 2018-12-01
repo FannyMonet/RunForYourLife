@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class PhasePiege : MonoBehaviour {
 
-    public GameObject prefab;
-	public GameObject player;
-    public GameObject trap;
-    private bool canPlaceHere;
+    public GameObject prefab;//The appearance of the trap object
+	public GameObject player;//The player 
+    public GameObject trap; //the real trap object
+    private bool canPlaceHere;//to know if the trap can be placed here
 
-    private GameObject textPhase;
-	private GameObject textPhaseShadow;
+    private GameObject textPhase; // the transition Text
+	private GameObject textPhaseShadow; // the transition Text shadow (design only)
 
-	private int waitingTime;
+	private int waitingTime; // the transition time
 
-	public string playerNumber;
+	public string playerNumber; // the number of the player
 
 
 

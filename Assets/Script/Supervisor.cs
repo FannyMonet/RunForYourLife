@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//The biggest class of the game.
+//It allows to get all the informations in order to start the game.
+//It is a singleton class
 public class Supervisor : MonoBehaviour {
 
     public static bool created;
+
 	public GameObject J1;
 	public GameObject J2;
 	public GameObject J3;

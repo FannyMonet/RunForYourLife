@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script transmits the character selected between scenes
+
 public class supervisorScript : MonoBehaviour {
 
-    public GameObject[] players;
-    public int number;
-    public int numberSelected;
+    public GameObject[] players;// all the players
+    public int number;//the total number of player
+    public int numberSelected;//the number of players that has picked their character
 
     public int lvlNumber;
 

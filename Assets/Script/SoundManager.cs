@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script create a singleton of a sound manager for the game
 public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance;
 
-    public AudioClip[] clip;
+    public AudioClip[] clip;//List of all the instruments
 
-    public AudioSource[] sourceList;
+    public AudioSource[] sourceList;//list of the 4 audioSources
 
 
 	public int[] indexS;
 
+	//4 AudioSource for the maximum 4 player
 	private AudioSource  S1;
 	private AudioSource  S2;
 	private AudioSource  S3;

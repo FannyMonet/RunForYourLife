@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Unused script
 public class Dezoom : MonoBehaviour {
 
   /*  void OnTriggerEnter2D (Collider2D other)

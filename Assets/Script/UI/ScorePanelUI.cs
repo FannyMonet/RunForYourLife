@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script runs the UI panel of score. 
 public class ScorePanelUI : MonoBehaviour {
 
-
+//Scores of players
     public Text textJ1;
 	public Text textJ2;
 	public Text textJ3;
 	public Text textJ4;
-
+//Score bars of players
 	public GameObject bar1;
 	public GameObject bar2;
 	public GameObject bar3;
 	public GameObject bar4;
-
+//Picture of each player
 	public Image J1;
 	public Image J2;
 	public Image J3;
@@ -26,7 +27,8 @@ public class ScorePanelUI : MonoBehaviour {
 
 	public Supervisor supervisor;
 
-	private int[] counter;
+	private int[] counter;//list of int to play the animation of the bar-> it goes bigger relatively to the player's score
+
 	// Use this for initialization
 	void Start ()
 	{

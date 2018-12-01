@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Move : MonoBehaviour {
-    public int playerNumber;
-    public float speed;
-	public Case caseSelec;
-    public Aleatoire listeAleatoire;
-    public supervisorScript supervisor;
 
-    private bool clicked;
+//This script controls the cursor in the PlayerSlection scene
+public class Move : MonoBehaviour {
+    public int playerNumber;//the number of the player, it allows to attribute the prefab to the player
+    public float speed; //the speed of the cursor
+	public Case caseSelec; // the selected case 
+    public Aleatoire listeAleatoire; // 
+    public supervisorScript supervisor;//The reference to the pre-supervisor
+
+    private bool clicked; 
 
     public SoundManager soundManager;
 

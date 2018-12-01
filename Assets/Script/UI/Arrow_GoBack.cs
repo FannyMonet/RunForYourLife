@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
+//this script is used in the character slection scene.
+//It allows to go back to the main menu
+
 public class Arrow_GoBack : MonoBehaviour {
 
 
@@ -18,16 +22,6 @@ public class Arrow_GoBack : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	void OnTriggerEnter2D (Collider2D col)
-	{
-
-	   
-
-	}
 	void OnTriggerStay2D (Collider2D col)
 	{
 

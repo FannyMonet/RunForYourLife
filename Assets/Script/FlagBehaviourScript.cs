@@ -6,48 +6,55 @@ using UnityEngine.SceneManagement;
 
 public class FlagBehaviourScript : MonoBehaviour {
 
-    public int nbPlayers;
-    public int nbFinis;
+    public int nbPlayers;// the number of players
+    public int nbFinis; // the number of players that reached the flag or died
 
-    public GameObject[] playerList;
-    public GameObject playerTrapList;
+    public GameObject[] playerList; //list of all players
+    public GameObject playerTrapList;//a GameObject that will be instantiated as many times as there is player
+
+    //Waiting times for cinematic transition
 	public int waitingTimeAtStart;
     private int waitingTime;
     private int waitingTime2;
 	private int waitingTime3;
 	private int waitingTime4;
-	private bool premier;
-	public bool someoneDead;
-	private int[] scoresProvisoires;
-	public int[] scoresKills;
 
+
+	private bool premier; //know which players arrived first (he wins 2 points)
+	public bool someoneDead;//know if a player has died (if not, no one wins any point)
+	private int[] scoresProvisoires;//the calculation of the points before we know if someone died
+	public int[] scoresKills;//points that will be awarded if the player finishes the level
+
+	//Booleans for the board animation
     public bool boardDown;
 	public bool boardUp;
 	public bool endCinematic;
 
+	//The winner's sprite
 	public Image winnerSprite;
 
-    public Animator pictureScore;
-    public Animator WinPanel;
-    public GameObject textPhase;
-    public GameObject textPhaseShadow;
+    public Animator pictureScore;//The animator of the board containing the scores of the players
+	public Animator WinPanel;// The animator of the board containing the winner
+    public GameObject textPhase;// Transition text
+    public GameObject textPhaseShadow;// Its shadow
 
-    public Supervisor supervisor;
+    public Supervisor supervisor;//Self explanatory
 
-    public GameObject tropFacile;
+    public GameObject tropFacile;//Picture that is displayed if noone died in this round
 
+    //Used for the trap distribution
     public int n1;
 	public int n2;
 	public int n3;
 	public int n4;
 	public int n5;
 
-	public int scoreMax;
-	public bool aGagne;
-	public int gagnant;
-	public bool partieFinie;
+	public int scoreMax;//Points needed in order to win
+	public bool aGagne;//True if someone has enough points to win
+	public int gagnant;//Number of the winner
+	public bool partieFinie;//True if the game is over
 
-	public Countdown countdown;
+	public Countdown countdown;//A countdown to known how much time is left before the end of the phase
 
 	// Use this for initialization
 	void Start () {
@@ -122,7 +129,6 @@ public class FlagBehaviourScript : MonoBehaviour {
 				}
 				if (someoneDead) {
 					tropFacile.SetActive (false);//Si quelqu'un perd, "trop facile disparait"
-					//Debug.Log("TropFacileDesactive");
 					for (int i = 0; i < nbPlayers; i++) {
 						if (playerList [i] != null) {
 							supervisor.scores [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1] += scoresProvisoires [int.Parse (playerList [i].GetComponent<Movement> ().playerNumber) - 1];
@@ -161,7 +167,6 @@ public class FlagBehaviourScript : MonoBehaviour {
 						partieFinie = true;
 					}
 				}
-				/*else if (unjoueurAsGagne)*/
 			}
 			if (waitingTime3 < 0 && boardUp) {
 				textPhase.GetComponent<Animator> ().SetTrigger ("ActivatePhase");

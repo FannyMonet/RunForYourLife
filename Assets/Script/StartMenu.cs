@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//This script is used to animate the main menu.
+//When the player touches a roc, it plays the animation of it
 public class StartMenu : MonoBehaviour {
 
     public Animator anim;

@@ -14,29 +14,22 @@ public class Movement : MonoBehaviour {
     public bool isGrounded;//know if the player is on the ground
     public Animator anim;//Control the animation of the player
     public AudioSource source;//display jump sound, death, ...
-    public bool dead;
-    public bool isUsingTaunt;
-    public bool canWallJump;
+    public bool dead;//if the player has lost
+    public bool canWallJump;//to know if the player can use WallJump
 
-    public AudioClip clip;
-	public AudioClip taunt;
+    public AudioClip clip;//Sound when player falls
 
-    public Transform feetPos;
-    public float checkRadius;
-    public LayerMask whatIsGround;
-    public float jumpTimeCounter;
-    public float jumpTime;
+    public float jumpTimeCounter;//To limits the jump power of the player
+    public float jumpTime;//
 
-    public string playerNumber;
+    public string playerNumber;//The number of the player (1,2,3,4)
 
-    public CameraAtStart camera;
+    public CameraAtStart camera;//In order to play the animation at launch (Dezoom)
 
-    public FlagBehaviourScript flag;
-    public GameObject SoundManager;
+    public FlagBehaviourScript flag;//The objectif of the player
 
 
 	void Start () {
-	   // Destroy(GameObject.Find("SoundManager"));
 		aRgbd = gameObject.GetComponent<Rigidbody2D>();
 		source = gameObject.GetComponent<AudioSource>();
 		anim = gameObject.GetComponent<Animator>();
@@ -48,14 +41,12 @@ public class Movement : MonoBehaviour {
 	if(isGrounded)
 	canWallJump = false;
 		if (camera.StartingGame) {//If the camera movement at the begining is over
-			//isGrounded = Physics2D.OverlapCircle (feetPos.position, checkRadius, whatIsGround);
 			anim.SetBool ("Dead", dead); 
-			//anim.SetBool ("Taunt", taunt);   
 			if (!dead) {
 				if (isGrounded)
 					jumpTimeCounter = jumpTime;
 			
-				if (Input.GetButtonDown ("Fire"+playerNumber) && isGrounded) {
+				if (Input.GetButtonDown ("Fire"+playerNumber) && isGrounded) {//Jump
 					aRgbd.velocity = new Vector2 (aRgbd.velocity.x, aJumpForce);
 					source.Play ();
 					isJumping = true;
@@ -135,7 +126,7 @@ public class Movement : MonoBehaviour {
 
 	}
 
-
+	//Behaviour when the countdown ends
 	public void countdownEnd ()
 	{
 		flag.playerList[flag.nbFinis] = this.gameObject;
