@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This script only moves arrows 
 public class ArrowMovement : MonoBehaviour {
 
     public Animator anim;
@@ -17,7 +19,6 @@ public class ArrowMovement : MonoBehaviour {
 	{
 		anim.SetBool ("contact", contact);
 		if (!contact) {
-			
 			this.transform.Translate (0.1f, 0, 0);
 		}
 	}

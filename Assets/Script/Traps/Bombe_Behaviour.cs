@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//The bomb destroys all traps that enter its area
 public class Bombe_Behaviour : MonoBehaviour {
 
     public CircleCollider2D circleCollider;
 
     public bool hasExploded;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +33,6 @@ public class Bombe_Behaviour : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
-	    Debug.Log("ENTER");
-	    Debug.Log("Bombe est entre en collision avec : "+col.name);
 		if (col.name.Equals("1(Clone)")|| col.name.Equals("2(Clone)") || col.name.Equals("3(Clone)")|| col.name.Equals("4(Clone)")) {
 			   Destroy(col.gameObject);
 		}
@@ -38,8 +40,6 @@ public class Bombe_Behaviour : MonoBehaviour {
 
 	void OnTriggerStay2D (Collider2D col)
 	{
-	    Debug.Log("STAY");
-		Debug.Log("Bombe est entre en collision avec : "+col.name);
 
 		if (col.name.Equals("1(Clone)")|| col.name.Equals("2(Clone)") || col.name.Equals("3(Clone)")|| col.name.Equals("4(Clone)")) {
 		   Destroy(col.gameObject);

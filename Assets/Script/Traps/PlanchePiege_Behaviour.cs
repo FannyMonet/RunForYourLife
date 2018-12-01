@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This trap move during the game so this script reinitialize the trap position at every run phases
 public class PlanchePiege_Behaviour : MonoBehaviour {
 
     public Vector3 pos_;
